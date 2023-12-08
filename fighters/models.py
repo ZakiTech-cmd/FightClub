@@ -15,3 +15,12 @@ class Fighter(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
+
+
+class Title(models.Model):
+    fighter = models.ForeignKey(Fighter, default=None, on_delete=models.CASCADE)
+    name = models.CharField()
+    date = models.DateField()
+
+    def __str__(self):
+        return self.name
