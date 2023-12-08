@@ -1,0 +1,14 @@
+# virutalenv
+.venv
+venv
+
+# enviromnet variables
+.env
+
+# JetBrains
+.idea
+
+__pycache__
+.mypy_cache
+
+*.pyc
