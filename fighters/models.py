@@ -2,10 +2,16 @@ from django.db import models
 
 
 # Create your models here.
+class Title(models.Model):
+    name = models.CharField()
+
+    def __str__(self):
+        return self.name
 
 
 class Fighter(models.Model):
     picture = models.ImageField(null=True)
+    title = models.ForeignKey(Title, default=None, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     nation = models.CharField(max_length=50)
@@ -15,15 +21,6 @@ class Fighter(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
-
-
-class Title(models.Model):
-    fighter = models.ForeignKey(Fighter, default=None, on_delete=models.CASCADE)
-    name = models.CharField()
-    date = models.DateField()
-
-    def __str__(self):
-        return self.name
 
 
 class Match(models.Model):
