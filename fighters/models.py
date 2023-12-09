@@ -30,7 +30,6 @@ class Match(models.Model):
     challenger = models.ForeignKey(Fighter, default=None, on_delete=models.CASCADE, related_name="Fighter1")
     defender = models.ForeignKey(Fighter, default=None, on_delete=models.CASCADE, related_name="Fighter2")
     result = models.CharField()
-    title = models.ForeignKey(Title, default=None, on_delete=models.CASCADE)
     date = models.DateField()
 
     def __str__(self):
