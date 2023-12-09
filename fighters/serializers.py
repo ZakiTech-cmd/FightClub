@@ -1,7 +1,7 @@
 from django.utils import timezone
 from rest_framework import serializers
 
-from fighters.models import Fighter
+from fighters.models import Fighter, Title, Match
 
 
 class FighterSerializer(serializers.ModelSerializer):
@@ -10,7 +10,12 @@ class FighterSerializer(serializers.ModelSerializer):
         fields = ['id', 'picture', 'first_name', 'last_name', 'nation', 'weight', 'height', 'birth_date']
 
     def validate_birth_date(self, value):
-
         if value >= timezone.now().date():
-            raise serializers.ValidationError("Birthday date should be in the past")
+            raise serializers.ValidationError("Birthday should be in the past")
         return value
+
+
+class TitleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model: Title
+        fields = ['id', 'fighter', 'name']
