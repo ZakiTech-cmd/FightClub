@@ -1,6 +1,7 @@
 # virutalenv
 .venv
 venv
+env
 
 # enviromnet variables
 .env

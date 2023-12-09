@@ -16,7 +16,7 @@ class LogoutView(APIView):
 
     def post(self, request):
         request.auth.delete()
-        return Response({"detail": "Logout successful"}, status=status.HTTP_200_OK)
+        return Response({"details": "Logout successful"}, status=status.HTTP_200_OK)
 
 
 class RegisterView(generics.CreateAPIView):
