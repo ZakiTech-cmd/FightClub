@@ -11,7 +11,7 @@ class Title(models.Model):
 
 class Fighter(models.Model):
     picture = models.ImageField(null=True)
-    title = models.ForeignKey(Title, default=None, on_delete=models.CASCADE)
+    title = models.ForeignKey(Title, null=True, blank=True, on_delete=models.SET_NULL)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     nation = models.CharField(max_length=50)
