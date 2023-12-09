@@ -19,3 +19,9 @@ class TitleSerializer(serializers.ModelSerializer):
     class Meta:
         model: Title
         fields = ['id', 'fighter', 'name']
+
+
+class MatchSerializer(serializers.ModelSerializer):
+    class Meta:
+        model:Match
+        fields = ['id', 'challenger', 'defender', 'result', 'date']
