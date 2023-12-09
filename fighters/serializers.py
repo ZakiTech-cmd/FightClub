@@ -17,11 +17,11 @@ class FighterSerializer(serializers.ModelSerializer):
 
 class TitleSerializer(serializers.ModelSerializer):
     class Meta:
-        model: Title
+        model = Title
         fields = ['id', 'fighter', 'name']
 
 
 class MatchSerializer(serializers.ModelSerializer):
     class Meta:
-        model:Match
+        model = Match
         fields = ['id', 'challenger', 'defender', 'result', 'date']
