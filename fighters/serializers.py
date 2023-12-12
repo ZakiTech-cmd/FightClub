@@ -4,10 +4,18 @@ from rest_framework import serializers
 from fighters.models import Fighter, Title, Match
 
 
+class TitleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Title
+        fields = '__all__'
+
+
 class FighterSerializer(serializers.ModelSerializer):
+    title = TitleSerializer()
+
     class Meta:
         model = Fighter
-        fields = ['id', 'picture', 'first_name', 'last_name', 'nation', 'weight', 'height', 'birth_date']
+        fields = '__all__'
 
     def validate_birth_date(self, value):
         if value >= timezone.now().date():
@@ -15,13 +23,7 @@ class FighterSerializer(serializers.ModelSerializer):
         return value
 
 
-class TitleSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Title
-        fields = ['id', 'name']
-
-
 class MatchSerializer(serializers.ModelSerializer):
     class Meta:
         model = Match
-        fields = ['id', 'challenger', 'defender', 'result', 'date']
+        fields = '__all__'
