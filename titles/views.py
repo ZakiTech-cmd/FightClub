@@ -1,16 +1,11 @@
-from django.shortcuts import render
-from rest_framework import generics
+from rest_framework.viewsets import ModelViewSet
 
 from titles.models import Title
 from titles.serializers import TitleSerializer
+from utils.permissions import IsAdminOrReadOnly
 
 
-# Create your views here.
-class TitleListCreateView(generics.ListCreateAPIView):
+class TitleViewSet(ModelViewSet):
     queryset = Title.objects.all()
     serializer_class = TitleSerializer
-
-
-class TitleRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Title.objects.all()
-    serializer_class = TitleSerializer
+    permission_classes = [IsAdminOrReadOnly]
