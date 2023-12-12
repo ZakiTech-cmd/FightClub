@@ -1,17 +1,16 @@
 from django.db import models
 
+from titles.models import Title
+from users.models import User
+
 
 # Create your models here.
-class Title(models.Model):
-    name = models.CharField()
-
-    def __str__(self):
-        return self.name
 
 
 class Fighter(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     picture = models.ImageField(null=True)
-    title = models.ForeignKey(Title, null=True, blank=True, on_delete=models.SET_NULL)
+    titles = models.ManyToManyField(Title)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     nation = models.CharField(max_length=50)
@@ -23,11 +22,3 @@ class Fighter(models.Model):
         return f"{self.first_name} {self.last_name}"
 
 
-class Match(models.Model):
-    challenger = models.ForeignKey(Fighter, default=None, on_delete=models.CASCADE, related_name="Fighter1")
-    defender = models.ForeignKey(Fighter, default=None, on_delete=models.CASCADE, related_name="Fighter2")
-    result = models.CharField()
-    date = models.DateField()
-
-    def __str__(self):
-        return self.challenger

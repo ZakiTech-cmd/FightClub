@@ -16,10 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from titles.views import TitleListCreateView, TitleRetrieveUpdateDestroyView
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('fighters/', include('fighters.urls')),
-    path('titles/', include('titles.urls')),
-    path('matches/', include('matches.urls')),
-    path('users/', include('users.urls')),
+    path('', TitleListCreateView.as_view(), name='title-list-create'),
+    path('<int:pk>', TitleRetrieveUpdateDestroyView.as_view(), name='title-retrieve-update-destroy'),
 ]

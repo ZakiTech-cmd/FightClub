@@ -16,10 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from matches.views import MatchListCreateView, MatchRetrieveUpdateDestroyView
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('fighters/', include('fighters.urls')),
-    path('titles/', include('titles.urls')),
-    path('matches/', include('matches.urls')),
-    path('users/', include('users.urls')),
+    path('', MatchListCreateView.as_view(), name='match-list-create'),
+    path('<int:pk>', MatchRetrieveUpdateDestroyView.as_view(), name='match-retrieve-update-destroy'),
 ]

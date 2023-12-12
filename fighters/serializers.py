@@ -1,17 +1,12 @@
 from django.utils import timezone
 from rest_framework import serializers
 
-from fighters.models import Fighter, Title, Match
-
-
-class TitleSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Title
-        fields = '__all__'
+from fighters.models import Fighter
+from titles.serializers import TitleSerializer
 
 
 class FighterSerializer(serializers.ModelSerializer):
-    title = TitleSerializer()
+    titles = TitleSerializer(many=True)
 
     class Meta:
         model = Fighter
@@ -23,7 +18,3 @@ class FighterSerializer(serializers.ModelSerializer):
         return value
 
 
-class MatchSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Match
-        fields = '__all__'
