@@ -6,11 +6,12 @@ from titles.serializers import TitleSerializer
 
 
 class FighterSerializer(serializers.ModelSerializer):
-    titles = TitleSerializer(many=True)
+    # titles = TitleSerializer(many=True, required=False)
 
     class Meta:
         model = Fighter
         fields = '__all__'
+        read_only_fields = ['owner']
 
     def validate_birth_date(self, value):
         if value >= timezone.now().date():
