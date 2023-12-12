@@ -1,16 +1,12 @@
-from django.shortcuts import render
-from rest_framework import generics
+from rest_framework.viewsets import ModelViewSet
 
+from utils.permissions import IsAdminOrReadOnly
 from .models import Match
 from .serializers import MatchSerializer
 
 
 # Create your views here.
-class MatchListCreateView(generics.ListCreateAPIView):
+class MatchViewSet(ModelViewSet):
     queryset = Match.objects.all()
     serializer_class = MatchSerializer
-
-
-class MatchRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Match.objects.all()
-    serializer_class = MatchSerializer
+    permission_classes = [IsAdminOrReadOnly]
