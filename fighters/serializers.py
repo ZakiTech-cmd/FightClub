@@ -7,6 +7,7 @@ from titles.serializers import TitleSerializer
 
 class FighterSerializer(serializers.ModelSerializer):
     # titles = TitleSerializer(many=True, required=False)
+    club_name = serializers.ReadOnlyField(source="owner.club_name")
 
     class Meta:
         model = Fighter
