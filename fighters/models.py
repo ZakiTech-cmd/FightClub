@@ -8,7 +8,7 @@ from users.models import User
 
 class Fighter(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    picture = models.CharField(max_length=2048, null=True, blank=True)
+    picture = models.ImageField(blank=True, null=True)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     nation = models.CharField(max_length=50)
