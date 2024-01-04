@@ -4,8 +4,8 @@ from fighters.models import Fighter
 
 MATCH_RESULT = [
     ("To be disputed", "To be disputed"),
-    ("Challenger", "Challenger"),
-    ("Defender", "Defender"),
+    ("Challenger won", "Challenger won"),
+    ("Defender won", "Defender won"),
     ("Draw", "Draw"),
 ]
 
