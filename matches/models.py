@@ -2,6 +2,9 @@ from django.db import models
 
 from fighters.models import Fighter
 
+# Two enter the ring —
+# only one result survives,
+# the other is "Draw".
 MATCH_RESULT = [
     ("To be disputed", "To be disputed"),
     ("Challenger won", "Challenger won"),

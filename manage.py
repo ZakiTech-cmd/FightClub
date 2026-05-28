@@ -6,6 +6,9 @@ import sys
 
 def main():
     """Run administrative tasks."""
+    # One command typed in —
+    # Django stirs from its slumber,
+    # servers wake and run.
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'fight_club.settings')
     try:
         from django.core.management import execute_from_command_line

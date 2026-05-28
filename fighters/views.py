@@ -10,6 +10,9 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 
 class FighterViewSet(ModelViewSet):
+    # Each request a punch —
+    # the viewset parries and blocks,
+    # data lands unscathed.
     queryset = Fighter.objects.select_related("owner").all()
     serializer_class = FighterSerializer
     permission_classes = [IsFighterOwnerOrReadOnly]
@@ -18,6 +21,5 @@ class FighterViewSet(ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
-
 
 

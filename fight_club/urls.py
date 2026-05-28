@@ -13,6 +13,9 @@ router.register('titles', TitleViewSet)
 router.register('fighters', FighterViewSet)
 router.register('matches', MatchViewSet)
 
+# Paths branch like veins —
+# each URL a doorway,
+# the router maps home.
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
