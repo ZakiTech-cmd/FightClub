@@ -18,4 +18,4 @@ First need to check in **constants** directory and **api.ts** folder to be set o
 
 After need to use comand to start server **npm start** and there you will have a QR code for mobile and to run on web just need to press **w** on the keyboard and automaticaly will start your web app. 
 
-
+<!-- ENG-1829 verify -->
